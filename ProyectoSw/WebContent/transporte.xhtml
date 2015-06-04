@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:ace="http://www.icefaces.org/icefaces/components"
+    xmlns:icecore="http://www.icefaces.org/icefaces/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="/resources/templates/content-template.xhtml">
+
+    <ui:param name="title" value="#{msgs[menuBean.title]}"/>
+    <ui:param name="description" value="#{msgs[menuBean.description]}"/>
+    <ui:param name="subMenuTitle" value="#{msgs[menuBean.subMenuTitle]}"/>
+    <ui:param name="subMenuLinks" value="#{menuBean.subMenuLinks}"/>
+    <ui:param name="resourceValue" value="#{menuBean.exampleResource}"/>
+    
+    <ui:param name="wikiResources" value="#{menuResources.wikiResources}"/>
+    <ui:param name="tldResources" value="#{menuResources.tldResources}"/>
+
+    <ui:define name="example1">
+        <h:form id="form">
+            <ace:panel id="panel" header="Transporte" rendered="#{panelHeader.headerEnable}">                       
+                <ace:dataTable id="tablaTransporte" value="#{dataTableBean.carsData}" var="car">
+                   <ace:column id="empresa" headerText="Empresa" sortBy="#{car.name}">
+                        <h:outputText id="empresaCelda" value="#{car.name}"/>
+                    </ace:column>
+                    <ace:column id="tarifa" headerText="Valor Tarifa" sortBy="#{car.acceleration}" >
+                        <h:outputText id="tarifaCelda" value="#{car.acceleration}"/>
+                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/>
+                    </ace:column>
+                </ace:dataTable>   
+            </ace:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
