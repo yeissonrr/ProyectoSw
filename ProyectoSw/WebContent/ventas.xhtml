@@ -9,24 +9,6 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     template="/resources/templates/content-template.xhtml">
 
-    <ui:param name="title" value="#{msgs[menuBean.title]}"/>
-    <ui:param name="description" value="#{msgs[menuBean.description]}"/>
-    <ui:param name="subMenuTitle" value="#{msgs[menuBean.subMenuTitle]}"/>
-    <ui:param name="subMenuLinks" value="#{menuBean.subMenuLinks}"/>
-    <ui:param name="resourceValue" value="#{menuBean.exampleResource}"/>
-    
-    <ui:param name="wikiResources" value="#{menuResources.wikiResources}"/>
-    <ui:param name="tldResources" value="#{menuResources.tldResources}"/>
-
-    <ui:param name="title" value="#{msgs[comboBoxBean.title]}"/>
-    <ui:param name="description" value="#{msgs[comboBoxBean.description]}"/>
-    <ui:param name="subMenuTitle" value="#{msgs[comboBoxBean.subMenuTitle]}"/>
-    <ui:param name="subMenuLinks" value="#{comboBoxBean.subMenuLinks}"/>
-    <ui:param name="resourceValue" value="#{comboBoxBean.exampleResource}"/>
-    
-    <ui:param name="wikiResources" value="#{comboBoxResources.wikiResources}"/>
-    <ui:param name="tldResources" value="#{comboBoxResources.tldResources}"/>
-
     <ui:define name="example1">
         <h:form id="form">
             <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">

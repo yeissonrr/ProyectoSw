@@ -9,7 +9,8 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     template="/resources/templates/content-template.xhtml">
 
-    <h:form id="form">
+    <ui:define name="example1">
+        <h:form id="form">
             <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
                 <ace:menu type="plain" id="exampleMenu" >
                     <ace:submenu label="File" id="file">
@@ -56,48 +57,24 @@
             </h:panelGrid>
         </h:form>
 
-        <h:form id="form2">    
-            <ace:panel id="datosTransportePanel" header="Transporte" rendered="#{panelHeader.headerEnable}" styleClass="reqquired-styling-demo">
-                <h:panelgrd id="datosTransporte" colums="3" width="100%"  styleClass="textEntryInputTable">
-                    <ace:textEntry id="distancia" value="#{textEntryBean.distancia}" label="Distancia" labelPosition="left" required="true">
-                        <ace:ajax render="@this salidaDistancia distanciaMsg" event="blur"/>
-                    <ace:textEntry/>
-                    
-                    <ace:textEntry id="carga" value="#{textEntryBean.carga}" label="Peso de la Carga" labelPosition="left" required="true">
-                        <ace:ajax render="@this salidaCarga cargaMsg" event="blur"/>
-                    <ace:textEntry/>
-                    <ace:pushButton id="calcularValorBoton" value="Calcular Valor" action="#{pushButton.executeAction}">
-                        <ace:ajax execute="@all" render="@all" onSuccess="updateAddressBarURL('aceMenu','linkButton');" />
-                        <f:param name="grp" value="aceMenu"/>
-                        <f:param name="exp" value="linkButton" />
-                    </ace:pushButton>
-                <h:panelgrid/>
-            <ace:panel/>
-
-            <ace:panel id="tablaTransportePanel">                       
-                <ace:dataTable id="tablaTransporte" value="#{dataTableBean.carsData}" var="car">
-                   <ace:column id="empresa" headerText="Empresa" sortBy="#{car.name}">
-                        <h:outputText id="empresaCelda" value="#{car.name}"/>
+        <h:form id="form2">
+            <ace:panel id="panelCompras" header="Carrito de Compras" rendered="#{panelHeader.headerEnable}">                       
+                <ace:dataTable id="tablaSugerencias" value="#{dataTableBean.carsData}" var="car">
+                   <ace:column id="nombre" headerText="Nombre" sortBy="#{car.name}">
+                        <h:outputText id="nombreCelda" value="#{car.name}"/>
                     </ace:column>
-                    <ace:column id="tarifa" headerText="Valor Tarifa" sortBy="#{car.acceleration}" >
-                        <h:outputText id="tarifaCelda" value="#{car.acceleration}"/>
+                    <ace:column id="distribuidor" headerText="Distribuidor" sortBy="#{car.chassis}" >
+                        <h:outputText id="distribuidorCelda" value="#{car.chassis}"/>
+                    </ace:column>
+                    <ace:column id="cantidad" headerText="Cantidad" sortBy="#{car.weight}">
+                        <h:outputText id="cantidadCelda" value="#{car.weight}"/>
+                    </ace:column>
+                    <ace:column id="valor" headerText="Valor" sortBy="#{car.acceleration}" >
+                        <h:outputText id="valorCelda" value="#{car.acceleration}"/>
                             <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/>
                     </ace:column>
-                </ace:dataTable>
-                <ace:comboBox id="selDist" value="#{comboBoxBean.distribuidor}" valueChangeListener="#{comboBoxBean.distribuidor}" label="Distribuidor: " labelPosition="left" style="height:19px;">
-                    <f:selectItem itemValue="abc" itemLabel="ABC Ltda" />
-                    <f:selectItem itemValue="xyz" itemLabel="XYZ S.A.S." />
-                    <ace:ajax />
-                </ace:comboBox>  
+                </ace:dataTable>   
             </ace:panel>
-
-            <ace:panel id="BotonAceptarPanel">
-                <ace:pushButton id="aceptarTransBoton" value="Aceptar" action="#{pushButton.executeAction}">
-                        <ace:ajax execute="@all" render="@all" onSuccess="updateAddressBarURL('aceMenu','linkButton');" />
-                        <f:param name="grp" value="aceMenu"/>
-                        <f:param name="exp" value="linkButton" />
-                    </ace:pushButton>
-            <ace:panel/>
         </h:form>
     </ui:define>
 </ui:composition>

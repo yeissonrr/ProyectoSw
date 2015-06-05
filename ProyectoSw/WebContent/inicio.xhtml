@@ -9,15 +9,6 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     template="/resources/templates/content-template.xhtml">
 
-    <ui:param name="title" value="#{msgs[menuBean.title]}"/>
-    <ui:param name="description" value="#{msgs[menuBean.description]}"/>
-    <ui:param name="subMenuTitle" value="#{msgs[menuBean.subMenuTitle]}"/>
-    <ui:param name="subMenuLinks" value="#{menuBean.subMenuLinks}"/>
-    <ui:param name="resourceValue" value="#{menuBean.exampleResource}"/>
-    
-    <ui:param name="wikiResources" value="#{menuResources.wikiResources}"/>
-    <ui:param name="tldResources" value="#{menuResources.tldResources}"/>
-
     <ui:define name="example1">
         <h:form id="form">
             <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
@@ -56,7 +47,7 @@
                     </ace:submenu>
                 </ace:menu>       
             
-                <ace:panel  header="Menu Selections Log">
+                <ace:panel>
                     <h:dataTable id="message" value="#{menuBean.list}" var="message">
                         <h:column>
                             <h:outputText id="msg" value="#{message}"/>
@@ -67,7 +58,7 @@
         </h:form>
 
         <h:form id="form2">
-            <ace:panel id="graphicImagePanel" header="Images" style="width: 100%;">
+            <ace:panel id="graphicImagePanel" style="width: 100%;">
                 <h:panelGrid width="60%" columns="2" cellpadding="20" cellspacing="20">
                     <ace:graphicImage id="urlImage" url="http://www.icesoft.org/java/resource/images/icefaces.png" />
                     <h:outputText value="Image loaded via URL" />
