@@ -1,0 +1,9 @@
+<html>
+<head>
+</head>
+<body>
+	<%
+		response.sendRedirect("./transporte.jsf");
+	%>
+</body>
+</html>
