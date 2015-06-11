@@ -1,181 +1,119 @@
-<?xml version="1.0"?>
-
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:c="http://java.sun.com/jsp/jstl/core"
-    xmlns:ace="http://www.icefaces.org/icefaces/components"
-    xmlns:icecore="http://www.icefaces.org/icefaces/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    template="/resources/templates/content-template.xhtml">
-
-    <ui:define name="example1">
-        <h:form id="form">
-            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-                <ace:menu type="plain" id="exampleMenu" >
-                    <ace:submenu label="File" id="file">
-                        <ace:menuItem id="Inicio"
-                                      value="Inicio" 
-                                      actionListener="#{menuBean.fireAction}">
-                            <ace:ajax event="activate" execute="@this" render="message" />
-                        </ace:menuItem>
-                        <ace:menuItem   id="Ventas"
-                                        value="Ventas"
-                                        actionListener="#{menuBean.fireAction}">
-                            <ace:ajax event="activate" execute="@this" render="message" />
-                        </ace:menuItem>
-                        <ace:menuItem id="Insumos"
-                                      value="Insumos"
-                                      actionListener="#{menuBean.fireAction}">
-                            <ace:ajax event="activate" execute="@this" render="message" />
-                        </ace:menuItem>
-                        <ace:menuItem id="Cultivo"
-                                      value="Mi Cultivo"
-                                      actionListener="#{menuBean.fireAction}">
-                            <ace:ajax event="activate" execute="@this" render="message" />
-                        </ace:menuItem>
-                        <ace:menuItem id="Transporte"
-                                      value="Transporte"
-                                      actionListener="#{menuBean.fireAction}">
-                            <ace:ajax event="activate" execute="@this" render="message" />
-                        </ace:menuItem>
-                        <ace:menuItem id="Configuracion"
-                                      value="Configuración"
-                                      actionListener="#{menuBean.fireAction}">
-                            <ace:ajax event="activate" execute="@this" render="message" />
-                        </ace:menuItem>
-                    </ace:submenu>
-                </ace:menu>       
-            
-                <ace:panel  header="Menu Selections Log">
-                    <h:dataTable id="message" value="#{menuBean.list}" var="message">
-                        <h:column>
-                            <h:outputText id="msg" value="#{message}"/>
-                        </h:column>
-                    </h:dataTable>
-                </ace:panel>
-            </h:panelGrid>
-        </h:form>
-
-        <h:form id="form">
-            <ace:tabSet id="sampleTabSet" clientSide="false">
-                <ace:tabPane id="ventaPanel" label="Venta">
-                    <ace:comboBox id="selProducto" value="#{comboBoxBean.province}" valueChangeListener="#{comboBoxBean.provinceChange}" label="Producto: " labelPosition="left" style="height:19px;">
-                        <f:selectItem itemValue="arroz" itemLabel="Arroz" />
-                        <f:selectItem itemValue="papa" itemLabel="Papa" />
-                        <ace:ajax />
-                    </ace:comboBox>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<h:head>
+	<title>EcoAgro</title>
+	<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+</h:head>
+<h:body>
+	<h:form id="menuForm">
+		<ace:panel id="panelMenu">
+	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+	                <ace:menu type="plain" id="exampleMenu" >
+						<ace:menuItem id="inicio" value="Inicio">
+	      				</ace:menuItem>
+	                    
+	                    <ace:menuItem   id="ventas" value="Ventas">
+						</ace:menuItem>
+	                    
+	                    <ace:menuItem id="insumos" value="Insumos">
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="transporte" value="Transporte"> 
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="Configuracion" value="Configuración">
+	                    </ace:menuItem>
+	                </ace:menu>
+	           </h:panelGrid>
+		</ace:panel>
+	</h:form>
+	
+	<h:form id="ventasForm">
+		<ace:tabSet id="ventasOpciones" clientSide="false">
+        	<ace:tabPane id="ventasPanel" label="Venta">
+            	<ace:comboBox id="selProducto" value="Arroz" label="Seleccione producto para ver los posibles compradores: " 
+                labelPosition="left" style="height:19px;">
+				</ace:comboBox>
                     
-                    <ace:dataTable id="ventasTabla"
-                          value="#{dataTableListener.carsData}"
-                          var="car"
-                          rows="10"
-                          stateMap="#{dataTableListener.stateMap}"
-                          selectionMode="single"
-                          rowSelectListener="#{dataTableListener.selectListener}"
-                          rowUnselectListener="#{dataTableListener.deselectListener}">
-
-                        <ace:ajax event="select" execute="@this listenerForm:eventLog" render="@this listenerForm:eventLog" />
+				<ace:dataTable id="tablaIndices">
+                	<ace:column id="empresa" headerText="Empresa">
+                	</ace:column>
                 
-                        <ace:column id="empresa" headerText="Empresa" sortBy="#{car.name}">
-                            <h:outputText id="nombreCelda" value="#{car.name}"/>
-                        </ace:column>
-                        <ace:column id="direccion" headerText="Dirección" sortBy="#{car.chassis}" >
-                            <h:outputText id="cantidadCelda" value="#{car.chassis}"/>
-                        </ace:column>
-                        <ace:column id="contacto" headerText="Contacto" sortBy="#{car.weight}">
-                            <h:outputText id="unidadCelda" value="#{car.weight}"/>
-                        </ace:column>
-                        <ace:column id="cantidadMax" headerText="Cantidad Máxima" sortBy="#{car.weight}">
-                            <h:outputText id="cantMaxCelda" value="#{car.weight}"/>
-                        </ace:column>
-                        <ace:column id="cantidad" headerText="Cantidad" sortBy="#{car.weight}">
-                            <h:outputText id="cantidadCelda" value="#{car.weight}"/>
-                        </ace:column>
-                        <ace:column id="valorUnt" headerText="Valor Unitario" sortBy="#{car.acceleration}" >
-                            <h:outputText id="valorUntCelda" value="#{car.acceleration}"/>
-                                <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/>
-                        </ace:column>
-                        <ace:column id="valorTot" headerText="Valor Total" sortBy="#{car.acceleration}" >
-                            <h:outputText id="valorTotCelda" value="#{car.acceleration}"/>
-                                <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/>
-                        </ace:column>
-                    </ace:dataTable>
-
-                    <ace:pushButton id="ventaBoton" value="Vender" action="#{pushButton.executeAction}">
-                        <ace:ajax execute="@all" render="@all" onSuccess="updateAddressBarURL('aceMenu','linkButton');" />
-                        <f:param name="grp" value="aceMenu"/>
-                        <f:param name="exp" value="linkButton" />
-                    </ace:pushButton>
-                </ace:tabPane>
+                	<ace:column id="direccion" headerText="Dirección">
+                	</ace:column>
+                	
+                	<ace:column id="contacto" headerText="Contacto">
+                	</ace:column>
+                	
+                	<ace:column id="cantidadMax" headerText="Cantidad Máxima">
+                	</ace:column>
+                	
+                	<ace:column id="cantidad" headerText="Cantidad">
+                	</ace:column>
                 
-                <ace:tabPane id="transaccionPanel" label="Transacciones">
-                    <ace:comboBox id="selBanco" value="#{comboBoxBean.province}" valueChangeListener="#{comboBoxBean.provinceChange}" label="Cuenta Bancaria: " labelPosition="left" style="height:19px;">
-                        <f:selectItem itemValue="agrario" itemLabel="Banco Agrario" />
-                        <f:selectItem itemValue="popular" itemLabel="Banco Popular" />
-                        <ace:ajax />
-                    </ace:comboBox>
+                	<ace:column id="valorUnitario" headerText="Valor Unitario">
+                	</ace:column>
                 
-                    <ace:comboBox id="selBanco" value="#{comboBoxBean.province}" valueChangeListener="#{comboBoxBean.provinceChange}" label="Ubicación Entrega: " labelPosition="left" style="height:19px;">
-                        <f:selectItem itemValue="tunja" itemLabel="Tunja" />
-                        <f:selectItem itemValue="bogota" itemLabel="Bogotá" />
-                        <ace:ajax />
-                    </ace:comboBox>
+                	<ace:column id="valorTotal" headerText="Valor Total">
+                	</ace:column>
+                </ace:dataTable>
 
-                    <ace:panel>
-                        <h:panelGrid style="text-align: center;" width="100%">
-                            <h:panelGroup>
-                                <h:outputLabel for="selected" value="Fecha: "/>
-                                <h:outputText id="selected" value="#{dateEntry.selectedDate}" style="font-weight: bold;">
-                                    <f:convertDateTime pattern="MMMM dd, yyyy"/>
-                                </h:outputText>
-                            </h:panelGroup>
-                        </h:panelGrid>
-                    </ace:panel>
-            
-                    <h:panelGrid style="margin-left: auto; margin-right: auto; text-align: center;" width="100">
-                        <ace:dateTimeEntry id="cal" value="#{dateEntry.selectedDate}" timeZone="Canada/Mountain" pattern="MMM/dd/yyyy" />
-                        <h:commandButton id="submitDate" value="Submit Date">                       
-                            <f:ajax execute="@this cal" render="@all"/>
-                        </h:commandButton>
-                    </h:panelGrid>
-
-                    <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
-                        <ace:textAreaEntry id="comentario" label="Comentario: " labelPosition="left" >
-                            <ace:ajax render="@this comment1Msg" event="blur"/>
-                        </ace:textAreaEntry>
-                    </h:panelGrid>
-
-                    <ace:pushButton id="enviarBoton" value="Enviar" action="#{pushButton.executeAction}">
-                        <ace:ajax execute="@all" render="@all" onSuccess="updateAddressBarURL('aceMenu','linkButton');" />
-                        <f:param name="grp" value="aceMenu"/>
-                        <f:param name="exp" value="linkButton" />
-                    </ace:pushButton>
-                </ace:tabPane>
+                <ace:pushButton id="ventaBoton" value="Vender">
+               	</ace:pushButton>
+			</ace:tabPane>
                 
-                <ace:tabPane id="historial" label="Historial">
-                    <ace:panel id="panel" header="Transacciones Realizadas" rendered="#{panelHeader.headerEnable}">                       
-                        <ace:dataTable id="tablaHistorial" value="#{dataTableBean.carsData}" var="car">
-                            <ace:column id="empresa" headerText="Empresa" sortBy="#{car.name}">
-                                <h:outputText id="empresaCelda" value="#{car.name}"/>
-                            </ace:column>
-                            <ace:column id="producto" headerText="Producto" sortBy="#{car.name}">
-                                <h:outputText id="productoCelda" value="#{car.name}"/>
-                            </ace:column>
-                            <ace:column id="cantidad" headerText="Cantidad" sortBy="#{car.chassis}" >
-                                <h:outputText id="cantidadCelda" value="#{car.chassis}"/>
-                            </ace:column>
-                            <ace:column id="fecha" headerText="Fecha" sortBy="#{car.weight}">
-                                <h:outputText id="fechaCelda" value="#{car.weight}"/>
-                            </ace:column>
-                            <ace:column id="valorTotal" headerText="Valor Total" sortBy="#{car.acceleration}" >
-                                <h:outputText id="valorCelda" value="#{car.acceleration}"/>
-                                    <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/>
-                            </ace:column>
-                        </ace:dataTable>   
-                    </ace:panel>
-                </ace:tabPane>
-            </ace:tabSet>
-        </h:form>
-    </ui:define>
-</ui:composition>
+            <ace:tabPane id="transaccionPanel" label="Transacciones">
+            	<ace:comboBox id="selBanco" value="Banco Agrario" label="Seleccionar cuenta: " labelPosition="left" style="height:19px;">
+				</ace:comboBox>
+                
+                <ace:comboBox id="ubicacionEntrega" value="Bogotá" label="Ubicación de entrega: " labelPosition="left" style="height:19px;">
+				</ace:comboBox>
+                
+	            <ace:dateTimeEntry id="fecha" binding="#{fecha}"
+						value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
+						pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
+						renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
+						maxdate="#{dateMinMaxBean.maxDate}" />
+						
+					
+                <ace:textAreaEntry id="comentario" label="Comentario: " labelPosition="left" >
+				</ace:textAreaEntry>
+               
+           		<ace:pushButton id="enviarBoton" value="Enviar">
+                </ace:pushButton>
+			</ace:tabPane>
+                
+            <ace:tabPane id="historial" label="Historial">
+            	<ace:panel id="panel" header="Transacciones Realizadas">                       
+                	<ace:dataTable id="tablaHistorial">
+                       	<ace:column id="empresa" headerText="Empresa">
+	                	</ace:column>
+	                
+	                	<ace:column id="producto" headerText="Producto">
+	                	</ace:column>
+	                	
+	                	<ace:column id="cantidadPro" headerText="Cantidad Producto">
+	                	</ace:column>
+	                	
+	                	<ace:column id="fechaEntrega" headerText="Fecha de Entrega">
+	                	</ace:column>
+	                
+	                	<ace:column id="valorTotal" headerText="Valor Total">
+	                	</ace:column>
+	                </ace:dataTable>
+          		</ace:panel>
+			</ace:tabPane>
+		</ace:tabSet>
+	</h:form>	 
+</h:body>
+</html>

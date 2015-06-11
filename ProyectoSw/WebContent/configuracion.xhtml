@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<h:head>
+	<title>EcoAgro</title>
+	<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+</h:head>
+<h:body>
+	<h:form id="menuForm">
+		<ace:panel id="panelMenu">
+	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+	                <ace:menu type="plain" id="exampleMenu" >
+						<ace:menuItem id="inicio" value="Inicio">
+	      				</ace:menuItem>
+	                    
+	                    <ace:menuItem   id="ventas" value="Ventas">
+						</ace:menuItem>
+	                    
+	                    <ace:menuItem id="insumos" value="Insumos">
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="transporte" value="Transporte"> 
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="Configuracion" value="Configuración">
+	                    </ace:menuItem>
+	                </ace:menu>
+	           </h:panelGrid>
+		</ace:panel>
+	</h:form>
+	
+	<h:form id="ConfiguracionForm">
+		<ace:tabSet id="configuracionOpciones" clientSide="false">
+        	<ace:tabPane id="cultivosConf" label="Mis Cultivos">
+            	<ace:panel id="agregarCultivo" header="Añadir Cultivo">
+	            	<ace:textEntry id="nombreCutivo" label="Nombre del Cutivo" labelPosition="top">
+					</ace:textEntry>
+	            	
+	            	<ice:outputLabel>Fecha de Sembrado:</ice:outputLabel>
+					<ace:dateTimeEntry id="fechaSembrado" binding="#{fecha}"
+					value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
+					pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
+					renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
+					maxdate="#{dateMinMaxBean.maxDate}" />
+					
+					<ice:outputLabel>Fecha aproximada de Recolección:</ice:outputLabel>
+					<ace:dateTimeEntry id="fechaRecoleccion" binding="#{fecha}"
+					value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
+					pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
+					renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
+					maxdate="#{dateMinMaxBean.maxDate}" />
+				</ace:panel>
+				
+				<ace:panel id="SensoresConf" header="Sensores">
+					<ace:comboBox id="sensor1" value="Humedad" label="Sensor 1: " labelPosition="left" style="height:19px;">
+					</ace:comboBox>
+					
+					<ace:comboBox id="sensor2" value="Temperatura" label="Sensor 2: " labelPosition="left" style="height:19px;">
+					</ace:comboBox>
+					
+					<ace:comboBox id="sensor3" value="Minerales" label="Sensor 3: " labelPosition="left" style="height:19px;">
+					</ace:comboBox>
+					
+					<ace:comboBox id="sensor4" value="Luz Solar" label="Sensor 4: " labelPosition="left" style="height:19px;">
+					</ace:comboBox>
+					
+	                <ace:pushButton id="guardarBoton" value="Guardar">
+	               	</ace:pushButton>
+	               	
+	                <ace:pushButton id="cancelarBoton" value="Cancelar">
+	               	</ace:pushButton>
+				</ace:panel>
+			</ace:tabPane>
+                
+            <ace:tabPane id="bancosConf" label="Mis Bancos">
+            	<ace:panel id="agregarBanco" header="Mis Bancos">
+	            	<ace:dataTable id="tablaBancos">
+                       	<ace:column id="banco" headerText="Banco">
+	                	</ace:column>
+	                
+	                	<ace:column id="numeroCuenta" headerText="Número de Cuenta">
+	                	</ace:column>
+	                	
+	                	<ace:column id="tipoCuenta" headerText="Tipo de Cuenta">
+	                	</ace:column>
+	                	
+	                	<ace:column id="eliminarCuenta" headerText="Eliminar">
+							<ace:pushButton id="eliminarBtn" value="eliminar">
+							</ace:pushButton>
+						</ace:column>
+	                </ace:dataTable>
+				</ace:panel>
+			</ace:tabPane>
+                
+            <ace:tabPane id="productosConf" label="Productos de Interés">
+            	<ace:panel id="agregarProductos" header="Mis Productos">
+	            	<ace:dataTable id="tablaProductos">
+                       	<ace:column id="producto" headerText="Producto">
+	                	</ace:column>
+	                	
+	                	<ace:column id="eliminarProducto" headerText="Eliminar">
+							<ace:pushButton id="eliminarBtn" value="eliminar">
+							</ace:pushButton>
+						</ace:column>
+	                </ace:dataTable>
+				</ace:panel>
+			</ace:tabPane>
+			
+			<ace:tabPane id="perfilConf" label="Mi Perfil">
+            	<ace:panel id="panel" header="Editar">                       
+                	<h:panelGrid columns="1">
+						<ace:textEntry id="nombrePerfil" label="Nombre" labelPosition="left">
+						</ace:textEntry>
+						<ace:textEntry id="apellidoPerfil" label="Apellido" labelPosition="left">
+						</ace:textEntry>
+						<ace:textEntry id="identificacionPerfil" label="Identificación" labelPosition="left">
+						</ace:textEntry>
+						<ace:textEntry id="telefonoPerfil" label="Teléfono" labelPosition="left">
+						</ace:textEntry>
+						<ace:textEntry id="correoPerfil" label="Correo" labelPosition="left">
+						</ace:textEntry>
+						<ace:textEntry id="password1Perfil" label="Contraseña" labelPosition="left">
+						</ace:textEntry>
+						<ace:textEntry id="password2Perfil" label="Confirmar Contraseña" labelPosition="left">
+						</ace:textEntry>
+						
+						<ace:pushButton id="guardarPerfilBoton" value="Guardar">
+						</ace:pushButton>	
+						
+						<ace:pushButton id="cancelarPerfiBoton" value="Cancelar">
+						</ace:pushButton>        			
+					</h:panelGrid> 
+          		</ace:panel>
+			</ace:tabPane>
+		</ace:tabSet>
+	</h:form>
+</h:body>
+</html>
