@@ -30,5 +30,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_31"/>
+	<classpathentry kind="lib" path="D:/Documentos/VIII Semestre/Ingenieria de Software I/Sw/lib/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
