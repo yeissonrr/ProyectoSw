@@ -1,6 +1,12 @@
 package logica;
+import java.io.Serializable;
 
-public class Empresa {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "empresa")
+@ViewScoped
+public class Empresa implements Serializable {
 	private int id;
 	private String nombre;
 	private String correo;

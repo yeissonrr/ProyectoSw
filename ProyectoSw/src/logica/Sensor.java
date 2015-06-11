@@ -1,11 +1,17 @@
 package logica;
+import java.io.Serializable;
 
-public class Sensores {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "sensor")
+@ViewScoped
+public class Sensor implements Serializable {
 	
 	private String nombre;
 	private float lectura;
 	
-	public Sensores() {
+	public Sensor() {
 		this.nombre = "";
 		this.lectura = 0;
 	}

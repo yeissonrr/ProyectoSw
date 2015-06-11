@@ -1,6 +1,12 @@
 package logica;
+import java.io.Serializable;
 
-public class Usuario {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "usuario")
+@ViewScoped
+public class Usuario implements Serializable {
 	private String nombre;
 	private String apellido;
 	private String identificacion;

@@ -1,6 +1,12 @@
 package logica;
+import java.io.Serializable;
 
-public class Transportadora {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "transportadora")
+@ViewScoped
+public class Transportadora implements Serializable {
 	private int id;
 	private String nombre;
 	private String correo;

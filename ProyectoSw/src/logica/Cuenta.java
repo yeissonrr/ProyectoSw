@@ -1,6 +1,12 @@
 package logica;
+import java.io.Serializable;
 
-public class Cuenta {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "cuenta")
+@ViewScoped
+public class Cuenta implements Serializable {
 	private String numeroCuenta;
 	private String tipoCuenta;
 	private String Banco;

@@ -1,6 +1,12 @@
 package logica;
+import java.io.Serializable;
 
-public class Indice {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "indice")
+@ViewScoped
+public class Indice implements Serializable {
 	private String nombre;
 	private String cantidad;
 	private String unidad;

@@ -1,19 +1,24 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
-public class Cultivos {
+@ManagedBean(name = "cultivo")
+@ViewScoped
+public class Cultivo implements Serializable {
 	private String nombreCultivo;
 	private Date fechaSembrado;
 	private Date fechaRecoleccion;
 
-	public Cultivos() {
+	public Cultivo() {
 		this.nombreCultivo = "";
 		this.fechaSembrado = null;
 		this.fechaRecoleccion = null;
 	}
 
-	public Cultivos(String nombreCultivo, Date fechaSembrado,
+	public Cultivo(String nombreCultivo, Date fechaSembrado,
 			Date fechaRecoleccion) {
 		this.nombreCultivo = nombreCultivo;
 		this.fechaSembrado = fechaSembrado;

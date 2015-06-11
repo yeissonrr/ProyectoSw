@@ -1,6 +1,12 @@
 package logica;
+import java.io.Serializable;
 
-public class Transacciones {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+@ManagedBean(name = "transaccion")
+@ViewScoped
+public class Transaccion implements Serializable {
 	private String nombreEmpresa;
 	private String producto;
 	private int totalTransaccion;
@@ -12,7 +18,7 @@ public class Transacciones {
 	private boolean terminada;
 	private boolean leida;
 
-	public Transacciones() {
+	public Transaccion() {
 		this.nombreEmpresa = "";
 		this.producto = "";
 		this.totalTransaccion = 0;
@@ -25,7 +31,7 @@ public class Transacciones {
 		this.leida = false;
 	}
 
-	public Transacciones(String nombreEmpresa, String producto,
+	public Transaccion(String nombreEmpresa, String producto,
 			int totalTransaccion, String cuentaTransaccion, String ubicacion,
 			int cantidad, String comentario, boolean aprobado,
 			boolean terminada, boolean leida) {
