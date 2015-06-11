@@ -3,7 +3,7 @@
 </head>
 <body>
 	<%
-		response.sendRedirect("./inicio.jsf");
+		response.sendRedirect("./index.jsf");
 	%>
 </body>
 </html>

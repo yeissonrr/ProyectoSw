@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<h:head>
+	<title>EcoAgro</title>
+	<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+</h:head>
+<h:body>
+	<h:form id="menuForm">
+		<ace:panel id="panelMenu">
+	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+	                <ace:menu type="plain" id="exampleMenu" >
+						<ace:menuItem id="inicio" value="Inicio">
+	      				</ace:menuItem>
+	                    
+	                    <ace:menuItem   id="ventas" value="Ventas">
+						</ace:menuItem>
+	                    
+	                    <ace:menuItem id="insumos" value="Insumos">
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="transporte" value="Transporte"> 
+	                    </ace:menuItem>
+	                    
+	                    <ace:menuItem id="Configuracion" value="Configuración">
+	                    </ace:menuItem>
+	                </ace:menu>
+	           </h:panelGrid>
+		</ace:panel>
+	</h:form>  
+    
+    <h:form id="indicesform">
+		<ace:panel id="panel" header="Índices">                       
+        	<ace:dataTable id="tablaIndices">
+            	<ace:column id="nombre" headerText="Nombre">
+        		</ace:column>
+                
+                <ace:column id="cantidad" headerText="Cantidad">
+                </ace:column>
+                
+                <ace:column id="unidad" headerText="Unidad">
+                </ace:column>
+                
+                <ace:column id="precio" headerText="Precio">
+                </ace:column>
+                
+                <ace:column id="variacion" headerText="Variación">
+                </ace:column>
+			</ace:dataTable>   
+		</ace:panel>
+	</h:form>
+	 
+</h:body>
+</html>
