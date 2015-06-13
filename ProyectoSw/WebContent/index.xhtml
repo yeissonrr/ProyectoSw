@@ -14,50 +14,51 @@
 <h:body>
 	<h:form id="menuForm">
 		<ace:panel id="panelMenu">
-	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-	                <ace:menu type="plain" id="exampleMenu" >
-						<ace:menuItem id="inicio" value="Inicio">
-	      				</ace:menuItem>
-	                    
-	                    <ace:menuItem   id="ventas" value="Ventas">
-						</ace:menuItem>
-	                    
-	                    <ace:menuItem id="insumos" value="Insumos">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="transporte" value="Transporte"> 
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="Configuracion" value="Configuración">
-	                    </ace:menuItem>
-	                </ace:menu>
-	           </h:panelGrid>
-		</ace:panel>
-	</h:form>  
-    
-    <h:form id="indicesform">
-		<ace:panel id="panel" header="Índices">                       
-        	<ace:dataTable id="tablaIndices">
-            	<ace:column id="nombre" headerText="Nombre">
-        		</ace:column>
-                
-                <ace:column id="cantidad" headerText="Cantidad">
-                </ace:column>
-                
-                <ace:column id="unidad" headerText="Unidad">
-                </ace:column>
-                
-                <ace:column id="precio" headerText="Precio">
-                </ace:column>
-                
-                <ace:column id="variacion" headerText="Variación">
-                </ace:column>
-			</ace:dataTable>   
+			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+				<ace:menu type="plain" id="exampleMenu">
+					<ace:menuItem id="inicio" value="Inicio">
+					</ace:menuItem>
+
+					<ace:menuItem id="ventas" value="Ventas" href ="ventas.jsp">
+					<ace:linkButton value="Ventas" href ="ventas.jsp"></ace:linkButton>
+					</ace:menuItem>
+
+					<ace:menuItem id="insumos" value="Insumos">
+					</ace:menuItem>
+
+					<ace:menuItem id="cultivo" value="Mi Cultivo">
+					</ace:menuItem>
+
+					<ace:menuItem id="transporte" value="Transporte">
+					</ace:menuItem>
+
+					<ace:menuItem id="Configuracion" value="Configuración">
+					</ace:menuItem>
+				</ace:menu>
+			</h:panelGrid>
 		</ace:panel>
 	</h:form>
-	 
+
+	<h:form id="indicesform">
+		<ace:panel id="panel" header="Índices">
+			<ace:dataTable id="tablaIndices">
+				<ace:column id="nombre" headerText="Nombre">
+				</ace:column>
+
+				<ace:column id="cantidad" headerText="Cantidad">
+				</ace:column>
+
+				<ace:column id="unidad" headerText="Unidad">
+				</ace:column>
+
+				<ace:column id="precio" headerText="Precio">
+				</ace:column>
+
+				<ace:column id="variacion" headerText="Variación">
+				</ace:column>
+			</ace:dataTable>
+		</ace:panel>
+	</h:form>
+
 </h:body>
 </html>
