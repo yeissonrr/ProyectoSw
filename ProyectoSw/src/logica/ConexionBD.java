@@ -11,6 +11,8 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean(name = "conexionbd")
 @ViewScoped
 public class ConexionBD implements Serializable {
+	
+	private static ConexionBD instancia;
 	private Connection conexion;
 
 	public ConexionBD() {
@@ -25,6 +27,13 @@ public class ConexionBD implements Serializable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static ConexionBD getInstancia(){
+		if (instancia == null) {
+			instancia = new ConexionBD();			
+		}
+		return instancia;
 	}
 
 	public Connection getConexion() {
