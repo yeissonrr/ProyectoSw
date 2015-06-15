@@ -1,4 +1,5 @@
 package logica;
+
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
@@ -9,9 +10,9 @@ import javax.faces.bean.ViewScoped;
 public class Usuario implements Serializable {
 	private String nombre;
 	private String apellido;
+	private String correo;
 	private String identificacion;
 	private String telefono;
-	private String correo;
 	private String ubicacion;
 	private String nickname;
 	private String contraseña;
@@ -27,14 +28,14 @@ public class Usuario implements Serializable {
 		this.contraseña = "";
 	}
 
-	public Usuario(String nombre, String apellido, String identificacion,
-			String telefono, String correo, String ubicacion, String nickname,
-			String contraseña) {
+	public Usuario(String nombre, String apellido, String correo,
+			String identificacion, String telefono, String ubicacion,
+			String nickname, String contraseña) {
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.correo = correo;
 		this.identificacion = identificacion;
 		this.telefono = telefono;
-		this.correo = correo;
 		this.ubicacion = ubicacion;
 		this.nickname = nickname;
 		this.contraseña = contraseña;

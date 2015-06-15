@@ -46,13 +46,17 @@ public class PerfilBean implements Serializable {
 	}
 
 	public void actualizar(String nombre, String apellido, String correo,
-			String identificacion, String telefono, String ubicacion, String contraseña) {
-			
+			String identificacion, String telefono, String ubicacion,
+			String contraseña) {
+
 		String sql = "UPDATE usuarios set nombre_usuario='" + nombre
-				+ "', apellido_usuario = '" + apellido + "', correo_usuario = '"+correo 
-				+ "', identificacion_trabajo = '" + identificacion + "', telefono_usuario = '"
-				+ telefono + "', ubicacion_usuario = '" + ubicacion + "', contraseña_usuario = '"
-				+ contraseña + "' where nick_usuario ='SrCyco';";
+				+ "', apellido_usuario = '" + apellido
+				+ "', correo_usuario = '" + correo
+				+ "', identificacion_usuario = '" + identificacion
+				+ "', telefono_usuario = '" + telefono
+				+ "', ubicacion_usuario = '" + ubicacion
+				+ "', contraseña_usuario = '" + contraseña
+				+ "' where nick_usuario ='SrCyco';";
 		Statement sentencia;
 		try {
 			sentencia = bd.getConexion().createStatement();
@@ -64,11 +68,11 @@ public class PerfilBean implements Serializable {
 		}
 
 	}
-	
-	public void prueba(){
+
+	public void prueba() {
 		String holis = "holiiis";
 		System.out.println(holis);
-		
+
 	}
 
 	public ArrayList<Usuario> getLista() {

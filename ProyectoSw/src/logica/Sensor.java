@@ -11,6 +11,11 @@ public class Sensor implements Serializable {
 	private String nombre;
 	private float lectura;
 	
+	public Sensor(String nombre, float lectura) {
+		nombre = nombre;
+		lectura = lectura;
+	}
+	
 	public Sensor() {
 		this.nombre = "";
 		this.lectura = 0;

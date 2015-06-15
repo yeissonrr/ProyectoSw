@@ -7,30 +7,30 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean(name = "transportadora")
 @ViewScoped
 public class Transportadora implements Serializable {
-	private int id;
+	private String id;
 	private String nombre;
 	private String correo;
-	private int precioKM;
-	private int PrecioKG;
+	private String precioKM;
+	private String PrecioKG;
 	
 	public Transportadora(){
-		id = 0;
+		id = "";
 		nombre = "";
 		correo = "";
-		precioKM = 0;
-		PrecioKG = 0;		
+		precioKM = "";
+		PrecioKG = "";		
 	}
-	public Transportadora(int id, String nombre, String correo, int precioKM, int precioKG ){
+	public Transportadora(String id, String nombre, String correo, String precioKM, String precioKG ){
 		this.id = id;
 		this.nombre = nombre;
 		this.correo = correo;
 		this.precioKM = precioKM;
 		this.PrecioKG = precioKG;		
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -45,18 +45,17 @@ public class Transportadora implements Serializable {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public int getPrecioKM() {
+	public String getPrecioKM() {
 		return precioKM;
 	}
-	public void setPrecioKM(int precioKM) {
+	public void setPrecioKM(String precioKM) {
 		this.precioKM = precioKM;
 	}
-	public int getPrecioKG() {
+	public String getPrecioKG() {
 		return PrecioKG;
 	}
-	public void setPrecioKG(int precioKG) {
+	public void setPrecioKG(String precioKG) {
 		PrecioKG = precioKG;
 	}
 	
-
 }

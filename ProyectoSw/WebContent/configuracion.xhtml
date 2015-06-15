@@ -122,51 +122,51 @@
 				<ace:panel id="panel" header="Editar">
 					<h:form>
 						<h:panelGrid columns="1">
-							<ace:textEntry id="nombrePerfil" labelPosition="inField"
-								binding="#{nombre}" label="#{perfilbean.usuario.nombre}">
+							<ace:textEntry id="nombrePerfil"
+								label="#{perfilbean.usuario.nombre}" labelPosition="inField"
+								binding="#{nombre}">
 							</ace:textEntry>
-							<ace:textEntry id="apellidoPerfil" label="Apellido"
-								labelPosition="left" value="#{perfilbean.usuario.apellido}"
+							<ace:textEntry id="apellidoPerfil"
+								label="#{perfilbean.usuario.apellido}" labelPosition="inField"
 								binding="#{apellido}">
 							</ace:textEntry>
-							<ace:textEntry id="correoPerfil" label="Correo"
-								labelPosition="left" value="#{perfilbean.usuario.correo}"
+							<ace:textEntry id="correoPerfil"
+								label="#{perfilbean.usuario.correo}" labelPosition="inField"
 								binding="#{correo}">
 							</ace:textEntry>
-							<ace:textEntry id="identificacionPerfil" label="Identificación"
-								labelPosition="left"
-								value="#{perfilbean.usuario.identificacion}"
-								binding="#{identificacion}">
+							<ace:textEntry id="identificacionPerfil"
+								label="#{perfilbean.usuario.identificacion}"
+								labelPosition="inField" binding="#{identificacion}">
 							</ace:textEntry>
-							<ace:textEntry id="ubicacionPerfil" label="Ubicacion"
-								labelPosition="left" value="#{perfilbean.usuario.ubicacion}"
-								binding="#{ubicacion}">
-							</ace:textEntry>
-							<ace:textEntry id="telefonoPerfil" label="Teléfono"
-								labelPosition="left" value="#{perfilbean.usuario.telefono}"
+							<ace:textEntry id="telefonoPerfil"
+								label="#{perfilbean.usuario.telefono}" labelPosition="inField"
 								binding="#{telefono}">
 							</ace:textEntry>
-							<ace:textEntry id="nickPerfil" label="Nickname"
-								labelPosition="left" value="#{perfilbean.usuario.nickname}"
+							<ace:textEntry id="ubicacionPerfil"
+								label="#{perfilbean.usuario.ubicacion}" labelPosition="inField"
+								binding="#{ubicacion}">
+							</ace:textEntry>
+							<ace:textEntry id="nickPerfil"
+								label="#{perfilbean.usuario.nickname}" labelPosition="inField"
 								binding="#{nick}">
 							</ace:textEntry>
-							<ace:textEntry id="password1Perfil" label="Contraseña"
-								labelPosition="left" value="#{perfilbean.usuario.contraseña}"
+							<ace:textEntry id="password1Perfil"
+								label="#{perfilbean.usuario.contraseña}" labelPosition="inField"
 								binding="#{contrasena}">
 							</ace:textEntry>
 							<ace:textEntry id="password2Perfil" label="Confirmar Contraseña"
-								labelPosition="left">
+								labelPosition="inField">
 							</ace:textEntry>
 
 
 						</h:panelGrid>
 					</h:form>
+					<ace:pushButton id="guardarPerfilBoton" value="Guardar"
+						actionListener="#{perfilbean.actualizar(nombre.value, apellido.value, correo.value, identificacion.value, telefono.value, ubicacion.value, contrasena.value)}" />
+					<ace:pushButton id="cancelarPerfilBoton" value="Cancelar"
+						actionListener="#{perfilbean.prueba}">
+					</ace:pushButton>
 				</ace:panel>
-				<ace:linkButton id="guardarPerfilBoton" value="Guardar"
-					actionListener="#{perfilbean.actualizar(nombre.value, apellido.value. correo.value, identificacion.value, telefono.value, ubicacion.value, contrasena.value)}" ></ace:linkButton>
-				<ace:pushButton id="cancelarPerfilBoton" value="Cancelar"
-					actionListener="#{perfilbean.prueba}">
-				</ace:pushButton>
 			</ace:tabPane>
 		</ace:tabSet>
 	</h:form>

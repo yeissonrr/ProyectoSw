@@ -7,22 +7,22 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean(name = "compra")
 @ViewScoped
 public class Compra implements Serializable {
-	private int id;
+	private String id;
 	private String nombreProducto;
-	private int cantidad;
+	private String cantidad;
 	private String distribuidor;
 	private String valor;
-	private boolean confirmacion;
+	private String confirmacion;
 	
 	public Compra(){
-		id = 0;
+		id = "";
 		nombreProducto ="";
-		cantidad =0;
+		cantidad = "";
 		distribuidor ="";
 		valor ="";
-		confirmacion = false;		
+		confirmacion = "";		
 	}
-	public Compra(int id, String nombreProducto, int cantidad, String distribuidor, String valor, boolean confirmacion){
+	public Compra(String id, String nombreProducto, String cantidad, String distribuidor, String valor, String confirmacion){
 		this.id = id;
 		this.nombreProducto = nombreProducto;
 		this.cantidad = cantidad;
@@ -30,10 +30,10 @@ public class Compra implements Serializable {
 		this.valor = valor;
 		this.confirmacion = confirmacion;		
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNombreProducto() {
@@ -42,10 +42,10 @@ public class Compra implements Serializable {
 	public void setNombreProducto(String nombreProducto) {
 		this.nombreProducto = nombreProducto;
 	}
-	public int getCantidad() {
+	public String getCantidad() {
 		return cantidad;
 	}
-	public void setCantidad(int cantidad) {
+	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
 	}
 	public String getDistribuidor() {
@@ -60,10 +60,11 @@ public class Compra implements Serializable {
 	public void setValor(String valor) {
 		this.valor = valor;
 	}
-	public boolean isConfirmacion() {
+	public String getConfirmacion() {
 		return confirmacion;
 	}
-	public void setConfirmacion(boolean confirmacion) {
+	public void setConfirmacion(String confirmacion) {
 		this.confirmacion = confirmacion;
 	}
+
 }
