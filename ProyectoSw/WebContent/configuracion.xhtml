@@ -43,44 +43,75 @@
 	<h:form id="ConfiguracionForm">
 		<ace:tabSet id="configuracionOpciones">
 			<ace:tabPane id="cultivosConf" label="Mis Cultivos">
-				<ace:panel id="agregarCultivo" header="Añadir Cultivo">
-					<ace:textEntry id="nombreCutivo" label="Nombre del Cutivo"
-						labelPosition="top" binding="#{nombreCultivo}">
-					</ace:textEntry>
+				<!-- Inicio Mostrar Cultivos -->
+				<ace:panel id="mostrarCultivos" header="Mostrar Cultivos">
+					<ace:dataTable id="tablaCultivos" value="#{cultivobean.list}"
+						var="cult">
+						<ace:column id="cultivo" headerText="Cultivo">
+							<h:outputText value="#{cult.nombreCultivo}"></h:outputText>
+						</ace:column>
 
-					<ace:dateTimeEntry id="fechaSembrado" binding="#{fechaSembrado}"
-						navigator="true" readOnlyInputText="true" renderAsPopup="true"
-						label="Fecha de Sembrado:" labelPosition="top" />
+						<ace:column id="fechaSiembra" headerText="Fecha Sembrado">
+							<h:outputText value="#{cult.fechaSembrado}"></h:outputText>
+						</ace:column>
 
-					<ace:dateTimeEntry id="fechaRecoleccion"
-						binding="#{fechaRecoleccion}" navigator="true"
-						readOnlyInputText="true" renderAsPopup="true"
-						label="Fecha de Recoleccion:" labelPosition="top" />
+						<ace:column id="fechaRecoleccion" headerText="Fecha Recoleccion">
+							<h:outputText value="#{cult.fechaRecoleccion}"></h:outputText>
+						</ace:column>
+
+						<ace:column id="eliminarCultivo" headerText="Eliminar">
+							<ace:pushButton id="eliminarCultivoBtn" value="Eliminar">
+							</ace:pushButton>
+						</ace:column>
+					</ace:dataTable>
+					<button
+						onclick="document.getElementById('#{panelComponent}').style.display='block';return true;">Añadir</button>
 				</ace:panel>
+				<!-- Fin Mostrar Cultivos -->
+				<ace:panel closable="true" toggleable="true"
+					collapsed="#{panelbean.collapsed}" header="Añadir Cultivo"
+					id="pnlCultivos" binding="#{panelComponent}">
 
-				<ace:panel id="SensoresConf" header="Sensores">
-					<ace:comboBox id="sensor1" value="Humedad" label="Sensor 1: "
-						labelPosition="left" style="height:19px;">
-					</ace:comboBox>
+					<ace:panel id="agregarCultivo" header="Añadir Cultivo">
+						<ace:textEntry id="nombreCutivo" label="Nombre del Cutivo"
+							labelPosition="top" binding="#{nombreCultivo}">
+						</ace:textEntry>
 
-					<ace:comboBox id="sensor2" value="Temperatura" label="Sensor 2: "
-						labelPosition="left" style="height:19px;">
-					</ace:comboBox>
+						<ace:dateTimeEntry id="fechaSembrado" binding="#{fechaSembrado}"
+							navigator="true" readOnlyInputText="true" renderAsPopup="true"
+							label="Fecha de Sembrado:" labelPosition="top" />
 
-					<ace:comboBox id="sensor3" value="Minerales" label="Sensor 3: "
-						labelPosition="left" style="height:19px;">
-					</ace:comboBox>
+						<ace:dateTimeEntry id="fechaRecoleccion"
+							binding="#{fechaRecoleccion}" navigator="true"
+							readOnlyInputText="true" renderAsPopup="true"
+							label="Fecha de Recoleccion:" labelPosition="top" />
+					</ace:panel>
 
-					<ace:comboBox id="sensor4" value="Luz Solar" label="Sensor 4: "
-						labelPosition="left" style="height:19px;">
-					</ace:comboBox>
+					<ace:panel id="SensoresConf" header="Sensores">
+						<ace:comboBox id="sensor1" value="Humedad" label="Sensor 1: "
+							labelPosition="left" style="height:19px;">
+						</ace:comboBox>
 
-					<ace:pushButton id="guardarBoton" value="Guardar"
-						actionListener="#{cultivobean.insertarValores(nombreCultivo.value, fechaSembrado.value, fechaRecoleccion.value)}">
-					</ace:pushButton>
+						<ace:comboBox id="sensor2" value="Temperatura" label="Sensor 2: "
+							labelPosition="left" style="height:19px;">
+						</ace:comboBox>
 
-					<ace:pushButton id="cancelarBoton" value="Cancelar">
-					</ace:pushButton>
+						<ace:comboBox id="sensor3" value="Minerales" label="Sensor 3: "
+							labelPosition="left" style="height:19px;">
+						</ace:comboBox>
+
+						<ace:comboBox id="sensor4" value="Luz Solar" label="Sensor 4: "
+							labelPosition="left" style="height:19px;">
+						</ace:comboBox>
+
+						<ace:pushButton id="guardarBoton" value="Guardar"
+							actionListener="#{cultivobean.insertarValores(nombreCultivo.value, fechaSembrado.value, fechaRecoleccion.value)}">
+						</ace:pushButton>
+
+						<ace:pushButton id="cancelarBoton" value="Cancelar">
+						</ace:pushButton>
+					</ace:panel>
+
 				</ace:panel>
 			</ace:tabPane>
 

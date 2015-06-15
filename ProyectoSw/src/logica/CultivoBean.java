@@ -1,11 +1,13 @@
 package logica;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -29,9 +31,13 @@ public class CultivoBean implements Serializable {
 	private Calendar calendarCultivo;
 	private DateFormat formatterSembrado;
 	private DateFormat formatterCultivo;
+	private ArrayList<Cultivo> list;
+	private Cultivo cultivo;
 	
 	public CultivoBean() {
 		bd = ConexionBD.getInstancia();
+		list = new ArrayList<Cultivo>();
+		todasLasTuplas();
 	}
 	
 	public void insertarValores(String nombre, String sembrado, String cultivo){
@@ -64,7 +70,34 @@ public class CultivoBean implements Serializable {
 			e.printStackTrace();
 
 		}
-		
+	}
+	
+	public void todasLasTuplas() {
+		String sql = "select * from cultivos";
+		Statement comando;
+		try {
+			comando = bd.getConexion().createStatement();
+			ResultSet registro;
+			registro = comando.executeQuery(sql);
+
+			while (registro.next()) {
+				cultivo = new Cultivo(registro.getString(2),
+						registro.getString(3), registro.getString(4));
+				list.add(cultivo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+
+	public ArrayList<Cultivo> getList() {
+		return list;
+	}
+
+	public void setList(ArrayList<Cultivo> list) {
+		this.list = list;
 	}
 	
 }

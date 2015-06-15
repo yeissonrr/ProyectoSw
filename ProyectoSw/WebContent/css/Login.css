@@ -1,0 +1,66 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+header,section,footer,aside,article,figure,figcaption,hgroup {
+	display: block;
+}
+
+#logo {
+	width: 300px;
+	height: 120px;
+	border: 1px solid black;
+	margin: 15px auto;
+}
+
+body {
+	text-align: center;
+	background-image: url("../img/fondo.jpeg");
+	display: block;
+	padding: 150px 200px;
+}
+
+#iceForm panel {
+	text-align: left;
+	margin: 200px auto;
+	width: 500px;
+	background-color: rgba(250, 255, 250, 0.5);
+	display: block;
+	padding: 50px;
+}
+
+#iceForm {
+	background-color: rgba(250, 255, 250, 0.1);
+	padding: 50px;
+}
+
+#loginPanel {
+	background-color: rgba(250, 255, 250, 0.5);
+	display: block;
+	border: none;
+	padding: 50px;
+	background-repeat: no-repeat;
+	display: block;
+	border: 3px solid black;
+}
+
+#panelCampos {
+	display: block;
+	text-align: left;
+	background-color: rgba(250, 255, 250, 0.5);
+}
+
+#panelb {
+	display: block;
+	text-align: center;
+	margin: 10px;
+}
+
+#link1 {
+	font: rgb(0, 153, 204);
+}
+
+#boton1 {
+	background-color: #009900;
+}

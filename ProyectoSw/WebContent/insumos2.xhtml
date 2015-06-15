@@ -14,58 +14,60 @@
 <h:body>
 	<h:form id="menuForm">
 		<ace:panel id="panelMenu">
-	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-	                <ace:menu type="plain" id="exampleMenu" >
-						<ace:menuItem id="inicio" value="Inicio">
-	      				</ace:menuItem>
-	                    
-	                    <ace:menuItem   id="ventas" value="Ventas">
-						</ace:menuItem>
-	                    
-	                    <ace:menuItem id="insumos" value="Insumos">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="transporte" value="Transporte"> 
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="Configuracion" value="Configuración">
-	                    </ace:menuItem>
-	                </ace:menu>
-	           </h:panelGrid>
+			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+				<ace:menu type="plain" id="exampleMenu">
+					<ace:menuItem id="inicio" value="Inicio">
+					</ace:menuItem>
+
+					<ace:menuItem id="ventas" value="Ventas">
+					</ace:menuItem>
+
+					<ace:menuItem id="insumos" value="Insumos">
+					</ace:menuItem>
+
+					<ace:menuItem id="cultivo" value="Mi Cultivo">
+					</ace:menuItem>
+
+					<ace:menuItem id="transporte" value="Transporte">
+					</ace:menuItem>
+
+					<ace:menuItem id="Configuracion" value="Configuración">
+					</ace:menuItem>
+				</ace:menu>
+			</h:panelGrid>
 		</ace:panel>
 	</h:form>
-	
+
 	<h:form id="ComprasForm">
-		<ace:panel id="panelCompras" header="Carrito de Compras">                       
+		<ace:panel id="panelCompras" header="Carrito de Compras">
 			<ace:dataTable id="tablaCompras">
-            	<ace:column id="nombrePdto" headerText="Nombre Producto">
-                </ace:column>
-                
-                <ace:column id="cantidad" headerText="Cantidad">
-                </ace:column>
-                    
-                <ace:column id="distribuidor" headerText="Distribuidor">
-                </ace:column>
-                	            
-                <ace:column id="valorCompra" headerText="Valor Total">
-                </ace:column>
-			</ace:dataTable>  
+				<ace:column id="nombrePdto" headerText="Nombre Producto">
+				</ace:column>
+
+				<ace:column id="cantidad" headerText="Cantidad">
+				</ace:column>
+
+				<ace:column id="distribuidor" headerText="Distribuidor">
+				</ace:column>
+
+				<ace:column id="valorCompra" headerText="Valor Total">
+				</ace:column>
+			</ace:dataTable>
 		</ace:panel>
-		
-		<ace:comboBox id="selCuenta" value="Banco Agrario" label="Seleccionar cuenta: " labelPosition="left" style="height:19px;">
+
+		<ace:comboBox id="selCuenta" value="Banco Agrario"
+			label="Seleccionar cuenta: " labelPosition="left"
+			style="height:19px;">
 		</ace:comboBox>
-		
+
 		<ace:pushButton id="comprarBoton" value="Comprar">
 		</ace:pushButton>
-        
-        <ace:pushButton id="cancelarBoton" value="Cancelar">
-		</ace:pushButton>        
-        
-        <ace:pushButton id="limpiarBoton" value="Limpiar Lista">
-		</ace:pushButton>      
+
+		<ace:pushButton id="cancelarBoton" value="Cancelar">
+		</ace:pushButton>
+
+		<ace:pushButton id="limpiarBoton" value="Limpiar Lista">
+		</ace:pushButton>
 	</h:form>
 </h:body>
 </html>

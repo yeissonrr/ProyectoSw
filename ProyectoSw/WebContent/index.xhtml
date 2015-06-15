@@ -8,56 +8,29 @@
 	xmlns:ace="http://www.icefaces.org/icefaces/components"
 	xmlns:ice="http://www.icesoft.com/icefaces/component">
 <h:head>
-	<title>EcoAgro</title>
-	<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+	<title>Login-EcoAgro</title>
+	<ice:outputStyle href="css/Login.css" />
 </h:head>
-<h:body>
-	<h:form id="menuForm">
-		<ace:panel id="panelMenu">
-			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-				<ace:menu type="plain" id="exampleMenu">
-					<ace:menuItem id="inicio" value="Inicio" url="index.jsp">
-					</ace:menuItem>
-
-					<ace:menuItem id="ventas" value="Ventas" url="ventas.jsp">
-					</ace:menuItem>
-
-					<ace:menuItem id="insumos" value="Insumos" url="insumos.jsp">
-					</ace:menuItem>
-
-					<ace:menuItem id="cultivo" value="Mi Cultivo" url="miCultivo.jsp">
-					</ace:menuItem>
-
-					<ace:menuItem id="transporte" value="Transporte" url = "transporte.jsp">
-					</ace:menuItem>
-
-					<ace:menuItem id="Configuracion" value="Configuración" url ="configuracion.jsp">
-					</ace:menuItem>
-				</ace:menu>
-			</h:panelGrid>
+<h:body id="body" background="img/fondo.jpeg">
+	<h:panelGrid columns="3">
+		<ace:panel id="loginPanel">
+			<ice:graphicImage id="logo" url="img/logo.jpeg"></ice:graphicImage>
+			<h:form id="iceForm">
+				<ace:panel id="campos">
+					<h:panelGrid columns="2" id="panelCampos">
+						<ice:outputLabel>Nombre de Usuario</ice:outputLabel>
+						<ice:inputText></ice:inputText>
+						<ice:outputLabel>Contraseña</ice:outputLabel>
+						<ice:inputSecret></ice:inputSecret>
+					</h:panelGrid>
+					<h:panelGroup id="panelb" layout="block">
+						<ace:linkButton id="link1" value="¿Olvidaste tu contraseña?"></ace:linkButton>
+						<ace:pushButton id="boton1" value="Ingresar" />
+						<ace:linkButton id="link2" value="Registrar" />
+					</h:panelGroup>
+				</ace:panel>
+			</h:form>
 		</ace:panel>
-	</h:form>
-
-	<h:form id="indicesform">
-		<ace:panel id="panel" header="Índices">
-			<ace:dataTable id="tablaIndices">
-				<ace:column id="nombre" headerText="Nombre">
-				</ace:column>
-
-				<ace:column id="cantidad" headerText="Cantidad">
-				</ace:column>
-
-				<ace:column id="unidad" headerText="Unidad">
-				</ace:column>
-
-				<ace:column id="precio" headerText="Precio">
-				</ace:column>
-
-				<ace:column id="variacion" headerText="Variación">
-				</ace:column>
-			</ace:dataTable>
-		</ace:panel>
-	</h:form>
-
+	</h:panelGrid>
 </h:body>
 </html>

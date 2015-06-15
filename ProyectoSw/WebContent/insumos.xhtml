@@ -14,8 +14,8 @@
 <h:body>
 	<h:form id="menuForm">
 		<ace:panel id="panelMenu">
-	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-	                <ace:menu type="plain" id="exampleMenu">
+			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+				<ace:menu type="plain" id="exampleMenu">
 					<ace:menuItem id="inicio" value="Inicio" url="index.jsp">
 					</ace:menuItem>
 
@@ -28,59 +28,67 @@
 					<ace:menuItem id="cultivo" value="Mi Cultivo" url="miCultivo.jsp">
 					</ace:menuItem>
 
-					<ace:menuItem id="transporte" value="Transporte" url = "transporte.jsp">
+					<ace:menuItem id="transporte" value="Transporte"
+						url="transporte.jsp">
 					</ace:menuItem>
 
-					<ace:menuItem id="Configuracion" value="Configuración" url ="configuracion.jsp">
+					<ace:menuItem id="Configuracion" value="Configuración"
+						url="configuracion.jsp">
 					</ace:menuItem>
 				</ace:menu>
-	           </h:panelGrid>
+			</h:panelGrid>
 		</ace:panel>
 	</h:form>
-	
-	<h:form id="SugerenciasForm">
-            <ace:panel id="panelSugerencias" header="Sugerencias">                       
-                <ace:dataTable id="tablaSugerencias">
-                	<ace:column id="nombre" headerText="Nombre">
-                	</ace:column>
-                
-                	<ace:column id="distribuidor" headerText="Distribuidor">
-                	</ace:column>
-                	
-                	<ace:column id="cantidad" headerText="Cantidad">
-                	</ace:column>
-                                
-                	<ace:column id="valor" headerText="Valor">
-                	</ace:column>
-                </ace:dataTable>  
-            </ace:panel>
-        </h:form>
 
-       <h:form id="InsumosForm">
-            <ace:panel id="panelInsumos" header="Insumos">                       
-                <ace:comboBox id="selProducto" value="Producto1" label="Producto: " labelPosition="left" style="height:19px;">
-				</ace:comboBox>
-				
-                <ace:dataTable id="tablaInsumos" filterBy="#{car.name}" filterMatchMode="contains">
-                	<ace:column id="selección" headerText="		">
-                    </ace:column>
-                	
-                	<ace:column id="nombre" headerText="Nombre" sortBy="" filterBy="" filterMatchMode="contains">
-                    </ace:column>
-                    
-                    <ace:column id="distribuidor" headerText="Distribuidor" sortBy="" filterBy="" filterMatchMode="contains">
-                    </ace:column>
-                    
-                    <ace:column id="cantidad" headerText="Cantidad" sortBy="" filterBy="" filterMatchMode="contains">
-                    </ace:column>
-                    
-                    <ace:column id="valor" headerText="Valor" sortBy="" filterBy="" filterMatchMode="contains">
-                    </ace:column>
-                </ace:dataTable>
-                
-                <ace:pushButton id="añadirBoton" value="Añadir al carrito">
-                </ace:pushButton>   
-            </ace:panel>
-        </h:form>	 
+	<h:form id="SugerenciasForm">
+		<ace:panel id="panelSugerencias" header="Sugerencias">
+			<ace:dataTable id="tablaSugerencias">
+				<ace:column id="nombre" headerText="Nombre">
+				</ace:column>
+
+				<ace:column id="distribuidor" headerText="Distribuidor">
+				</ace:column>
+
+				<ace:column id="cantidad" headerText="Cantidad">
+				</ace:column>
+
+				<ace:column id="valor" headerText="Valor">
+				</ace:column>
+			</ace:dataTable>
+		</ace:panel>
+	</h:form>
+
+	<h:form id="InsumosForm">
+		<ace:panel id="panelInsumos" header="Insumos">
+			<ace:comboBox id="selProducto" value="Producto1" label="Producto: "
+				labelPosition="left" style="height:19px;">
+			</ace:comboBox>
+
+			<ace:dataTable id="tablaInsumos" filterBy="#{car.name}"
+				filterMatchMode="contains">
+				<ace:column id="selección" headerText="		">
+				</ace:column>
+
+				<ace:column id="nombre" headerText="Nombre" sortBy="" filterBy=""
+					filterMatchMode="contains">
+				</ace:column>
+
+				<ace:column id="distribuidor" headerText="Distribuidor" sortBy=""
+					filterBy="" filterMatchMode="contains">
+				</ace:column>
+
+				<ace:column id="cantidad" headerText="Cantidad" sortBy=""
+					filterBy="" filterMatchMode="contains">
+				</ace:column>
+
+				<ace:column id="valor" headerText="Valor" sortBy="" filterBy=""
+					filterMatchMode="contains">
+				</ace:column>
+			</ace:dataTable>
+
+			<ace:pushButton id="añadirBoton" value="Añadir al carrito">
+			</ace:pushButton>
+		</ace:panel>
+	</h:form>
 </h:body>
 </html>

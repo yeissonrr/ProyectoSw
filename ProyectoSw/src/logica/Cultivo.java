@@ -9,8 +9,8 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class Cultivo implements Serializable {
 	private String nombreCultivo;
-	private Date fechaSembrado;
-	private Date fechaRecoleccion;
+	private String fechaSembrado;
+	private String fechaRecoleccion;
 
 	public Cultivo() {
 		this.nombreCultivo = "";
@@ -18,8 +18,8 @@ public class Cultivo implements Serializable {
 		this.fechaRecoleccion = null;
 	}
 
-	public Cultivo(String nombreCultivo, Date fechaSembrado,
-			Date fechaRecoleccion) {
+	public Cultivo(String nombreCultivo, String fechaSembrado,
+			String fechaRecoleccion) {
 		this.nombreCultivo = nombreCultivo;
 		this.fechaSembrado = fechaSembrado;
 		this.fechaRecoleccion = fechaRecoleccion;
@@ -34,20 +34,22 @@ public class Cultivo implements Serializable {
 		this.nombreCultivo = nombreCultivo;
 	}
 
-	public Date getFechaSembrado() {
+	public String getFechaSembrado() {
 		return fechaSembrado;
 	}
 
-	public void setFechaSembrado(Date fechaSembrado) {
+	public void setFechaSembrado(String fechaSembrado) {
 		this.fechaSembrado = fechaSembrado;
 	}
 
-	public Date getFechaRecoleccion() {
+	public String getFechaRecoleccion() {
 		return fechaRecoleccion;
 	}
 
-	public void setFechaRecoleccion(Date fechaRecoleccion) {
+	public void setFechaRecoleccion(String fechaRecoleccion) {
 		this.fechaRecoleccion = fechaRecoleccion;
 	}
+
+	
 
 }
