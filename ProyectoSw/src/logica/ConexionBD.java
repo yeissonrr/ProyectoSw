@@ -24,6 +24,7 @@ public class ConexionBD implements Serializable {
 		try {
 			conexion = DriverManager.getConnection(
 					"jdbc:mysql://localhost/ecoagro", "root", "");
+			System.out.println("Conexion hecha! :D");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

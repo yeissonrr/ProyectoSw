@@ -14,106 +14,114 @@
 <h:body>
 	<h:form id="menuForm">
 		<ace:panel id="panelMenu">
-	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-	                <ace:menu type="plain" id="exampleMenu" >
-						<ace:menuItem id="inicio" value="Inicio">
-	      				</ace:menuItem>
-	                    
-	                    <ace:menuItem   id="ventas" value="Ventas">
-						</ace:menuItem>
-	                    
-	                    <ace:menuItem id="insumos" value="Insumos">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="transporte" value="Transporte"> 
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="Configuracion" value="Configuración">
-	                    </ace:menuItem>
-	                </ace:menu>
-	           </h:panelGrid>
+			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+				<ace:menu type="plain" id="exampleMenu">
+					<ace:menuItem id="inicio" value="Inicio" url="index.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="ventas" value="Ventas" url="ventas.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="insumos" value="Insumos" url="insumos.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="cultivo" value="Mi Cultivo" url="miCultivo.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="transporte" value="Transporte"
+						url="transporte.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="Configuracion" value="Configuración"
+						url="configuracion.jsp">
+					</ace:menuItem>
+				</ace:menu>
+			</h:panelGrid>
 		</ace:panel>
 	</h:form>
-	
+
 	<h:form id="ventasForm">
 		<ace:tabSet id="ventasOpciones" clientSide="false">
-        	<ace:tabPane id="ventasPanel" label="Venta">
-            	<ace:comboBox id="selProducto" value="Arroz" label="Seleccione producto para ver los posibles compradores: " 
-                labelPosition="left" style="height:19px;">
+			<ace:tabPane id="ventasPanel" label="Venta">
+				<ace:comboBox id="selProducto" value="Arroz"
+					label="Seleccione producto para ver los posibles compradores: "
+					labelPosition="left" style="height:19px;">
 				</ace:comboBox>
-                    
-				<ace:dataTable id="tablaIndices">
-                	<ace:column id="empresa" headerText="Empresa">
-                	</ace:column>
-                
-                	<ace:column id="direccion" headerText="Dirección">
-                	</ace:column>
-                	
-                	<ace:column id="contacto" headerText="Contacto">
-                	</ace:column>
-                	
-                	<ace:column id="cantidadMax" headerText="Cantidad Máxima">
-                	</ace:column>
-                	
-                	<ace:column id="cantidad" headerText="Cantidad">
-                	</ace:column>
-                
-                	<ace:column id="valorUnitario" headerText="Valor Unitario">
-                	</ace:column>
-                
-                	<ace:column id="valorTotal" headerText="Valor Total">
-                	</ace:column>
-                </ace:dataTable>
 
-                <ace:pushButton id="ventaBoton" value="Vender">
-               	</ace:pushButton>
+				<ace:dataTable id="tablaIndices">
+					<ace:column id="empresa" headerText="Empresa">
+					</ace:column>
+
+					<ace:column id="direccion" headerText="Dirección">
+					</ace:column>
+
+					<ace:column id="contacto" headerText="Contacto">
+					</ace:column>
+
+					<ace:column id="cantidadMax" headerText="Cantidad Máxima">
+					</ace:column>
+
+					<ace:column id="cantidad" headerText="Cantidad">
+					</ace:column>
+
+					<ace:column id="valorUnitario" headerText="Valor Unitario">
+					</ace:column>
+
+					<ace:column id="valorTotal" headerText="Valor Total">
+					</ace:column>
+				</ace:dataTable>
+
+				<ace:pushButton id="ventaBoton" value="Vender">
+				</ace:pushButton>
 			</ace:tabPane>
-                
-            <ace:tabPane id="transaccionPanel" label="Transacciones">
-            	<ace:comboBox id="selBanco" value="Banco Agrario" label="Seleccionar cuenta: " labelPosition="left" style="height:19px;">
+
+			<ace:tabPane id="transaccionPanel" label="Transacciones">
+				<ace:comboBox id="selBanco" value="Banco Agrario"
+					label="Seleccionar cuenta: " labelPosition="left"
+					style="height:19px;">
 				</ace:comboBox>
-                
-                <ace:comboBox id="ubicacionEntrega" value="Bogotá" label="Ubicación de entrega: " labelPosition="left" style="height:19px;">
+
+				<ace:comboBox id="ubicacionEntrega" value="Bogotá"
+					label="Ubicación de entrega: " labelPosition="left"
+					style="height:19px;">
 				</ace:comboBox>
-                
-	            <ace:dateTimeEntry id="fecha" binding="#{fecha}"
-						value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
-						pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
-						renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
-						maxdate="#{dateMinMaxBean.maxDate}" />
-						
-					
-                <ace:textAreaEntry id="comentario" label="Comentario: " labelPosition="left" >
+
+				<ace:dateTimeEntry id="fecha" binding="#{fecha}"
+					value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
+					pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
+					renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
+					maxdate="#{dateMinMaxBean.maxDate}" />
+
+
+				<ace:textAreaEntry id="comentario" label="Comentario: "
+					labelPosition="left">
 				</ace:textAreaEntry>
-               
-           		<ace:pushButton id="enviarBoton" value="Enviar">
-                </ace:pushButton>
+
+				<ace:pushButton id="enviarBoton" value="Enviar">
+				</ace:pushButton>
 			</ace:tabPane>
-                
-            <ace:tabPane id="historial" label="Historial">
-            	<ace:panel id="panel" header="Transacciones Realizadas">                       
-                	<ace:dataTable id="tablaHistorial">
-                       	<ace:column id="empresa" headerText="Empresa">
-	                	</ace:column>
-	                
-	                	<ace:column id="producto" headerText="Producto">
-	                	</ace:column>
-	                	
-	                	<ace:column id="cantidadPro" headerText="Cantidad Producto">
-	                	</ace:column>
-	                	
-	                	<ace:column id="fechaEntrega" headerText="Fecha de Entrega">
-	                	</ace:column>
-	                
-	                	<ace:column id="valorTotal" headerText="Valor Total">
-	                	</ace:column>
-	                </ace:dataTable>
-          		</ace:panel>
+
+			<ace:tabPane id="historial" label="Historial">
+				<ace:panel id="panel" header="Transacciones Realizadas">
+					<ace:dataTable id="tablaHistorial">
+						<ace:column id="empresa" headerText="Empresa">
+						</ace:column>
+
+						<ace:column id="producto" headerText="Producto">
+						</ace:column>
+
+						<ace:column id="cantidadPro" headerText="Cantidad Producto">
+						</ace:column>
+
+						<ace:column id="fechaEntrega" headerText="Fecha de Entrega">
+						</ace:column>
+
+						<ace:column id="valorTotal" headerText="Valor Total">
+						</ace:column>
+					</ace:dataTable>
+				</ace:panel>
 			</ace:tabPane>
 		</ace:tabSet>
-	</h:form>	 
+	</h:form>
 </h:body>
 </html>

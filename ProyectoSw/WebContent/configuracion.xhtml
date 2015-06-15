@@ -14,132 +14,159 @@
 <h:body>
 	<h:form id="menuForm">
 		<ace:panel id="panelMenu">
-	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-	                <ace:menu type="plain" id="exampleMenu" >
-						<ace:menuItem id="inicio" value="Inicio">
-	      				</ace:menuItem>
-	                    
-	                    <ace:menuItem   id="ventas" value="Ventas">
-						</ace:menuItem>
-	                    
-	                    <ace:menuItem id="insumos" value="Insumos">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="transporte" value="Transporte"> 
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="Configuracion" value="Configuración">
-	                    </ace:menuItem>
-	                </ace:menu>
-	           </h:panelGrid>
+			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+				<ace:menu type="plain" id="exampleMenu">
+					<ace:menuItem id="inicio" value="Inicio" url="index.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="ventas" value="Ventas" url="ventas.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="insumos" value="Insumos" url="insumos.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="cultivo" value="Mi Cultivo" url="miCultivo.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="transporte" value="Transporte"
+						url="transporte.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="Configuracion" value="Configuración"
+						url="configuracion.jsp">
+					</ace:menuItem>
+				</ace:menu>
+			</h:panelGrid>
 		</ace:panel>
 	</h:form>
-	
+
 	<h:form id="ConfiguracionForm">
-		<ace:tabSet id="configuracionOpciones" clientSide="false">
-        	<ace:tabPane id="cultivosConf" label="Mis Cultivos">
-            	<ace:panel id="agregarCultivo" header="Añadir Cultivo">
-	            	<ace:textEntry id="nombreCutivo" label="Nombre del Cutivo" labelPosition="top">
+		<ace:tabSet id="configuracionOpciones">
+			<ace:tabPane id="cultivosConf" label="Mis Cultivos">
+				<ace:panel id="agregarCultivo" header="Añadir Cultivo">
+					<ace:textEntry id="nombreCutivo" label="Nombre del Cutivo"
+						labelPosition="top" binding="#{nombreCultivo}">
 					</ace:textEntry>
-	            	
-	            	<ice:outputLabel>Fecha de Sembrado:</ice:outputLabel>
-					<ace:dateTimeEntry id="fechaSembrado" binding="#{fecha}"
-					value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
-					pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
-					renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
-					maxdate="#{dateMinMaxBean.maxDate}" />
-					
-					<ice:outputLabel>Fecha aproximada de Recolección:</ice:outputLabel>
-					<ace:dateTimeEntry id="fechaRecoleccion" binding="#{fecha}"
-					value="#{dateMinMaxBean.maxDate}" timeZone="Canada/Mountain"
-					pattern="dd/MMM/yyyy" navigator="true" readOnlyInputText="true"
-					renderAsPopup="true" mindate="#{dateMinMaxBean.minDate}"
-					maxdate="#{dateMinMaxBean.maxDate}" />
+
+					<ace:dateTimeEntry id="fechaSembrado" binding="#{fechaSembrado}"
+						navigator="true" readOnlyInputText="true" renderAsPopup="true"
+						label="Fecha de Sembrado:" labelPosition="top" />
+
+					<ace:dateTimeEntry id="fechaRecoleccion"
+						binding="#{fechaRecoleccion}" navigator="true"
+						readOnlyInputText="true" renderAsPopup="true"
+						label="Fecha de Recoleccion:" labelPosition="top" />
 				</ace:panel>
-				
+
 				<ace:panel id="SensoresConf" header="Sensores">
-					<ace:comboBox id="sensor1" value="Humedad" label="Sensor 1: " labelPosition="left" style="height:19px;">
+					<ace:comboBox id="sensor1" value="Humedad" label="Sensor 1: "
+						labelPosition="left" style="height:19px;">
 					</ace:comboBox>
-					
-					<ace:comboBox id="sensor2" value="Temperatura" label="Sensor 2: " labelPosition="left" style="height:19px;">
+
+					<ace:comboBox id="sensor2" value="Temperatura" label="Sensor 2: "
+						labelPosition="left" style="height:19px;">
 					</ace:comboBox>
-					
-					<ace:comboBox id="sensor3" value="Minerales" label="Sensor 3: " labelPosition="left" style="height:19px;">
+
+					<ace:comboBox id="sensor3" value="Minerales" label="Sensor 3: "
+						labelPosition="left" style="height:19px;">
 					</ace:comboBox>
-					
-					<ace:comboBox id="sensor4" value="Luz Solar" label="Sensor 4: " labelPosition="left" style="height:19px;">
+
+					<ace:comboBox id="sensor4" value="Luz Solar" label="Sensor 4: "
+						labelPosition="left" style="height:19px;">
 					</ace:comboBox>
-					
-	                <ace:pushButton id="guardarBoton" value="Guardar">
-	               	</ace:pushButton>
-	               	
-	                <ace:pushButton id="cancelarBoton" value="Cancelar">
-	               	</ace:pushButton>
+
+					<ace:pushButton id="guardarBoton" value="Guardar"
+						actionListener="#{cultivobean.insertarValores(nombreCultivo.value, fechaSembrado.value, fechaRecoleccion.value)}">
+					</ace:pushButton>
+
+					<ace:pushButton id="cancelarBoton" value="Cancelar">
+					</ace:pushButton>
 				</ace:panel>
 			</ace:tabPane>
-                
-            <ace:tabPane id="bancosConf" label="Mis Bancos">
-            	<ace:panel id="agregarBanco" header="Mis Bancos">
-	            	<ace:dataTable id="tablaBancos">
-                       	<ace:column id="banco" headerText="Banco">
-	                	</ace:column>
-	                
-	                	<ace:column id="numeroCuenta" headerText="Número de Cuenta">
-	                	</ace:column>
-	                	
-	                	<ace:column id="tipoCuenta" headerText="Tipo de Cuenta">
-	                	</ace:column>
-	                	
-	                	<ace:column id="eliminarCuenta" headerText="Eliminar">
+
+			<ace:tabPane id="bancosConf" label="Mis Bancos">
+				<ace:panel id="agregarBanco" header="Mis Bancos">
+					<ace:dataTable id="tablaBancos">
+						<ace:column id="banco" headerText="Banco">
+						</ace:column>
+
+						<ace:column id="numeroCuenta" headerText="Número de Cuenta">
+						</ace:column>
+
+						<ace:column id="tipoCuenta" headerText="Tipo de Cuenta">
+						</ace:column>
+
+						<ace:column id="eliminarCuenta" headerText="Eliminar">
 							<ace:pushButton id="eliminarBtn" value="eliminar">
 							</ace:pushButton>
 						</ace:column>
-	                </ace:dataTable>
+					</ace:dataTable>
 				</ace:panel>
 			</ace:tabPane>
-                
-            <ace:tabPane id="productosConf" label="Productos de Interés">
-            	<ace:panel id="agregarProductos" header="Mis Productos">
-	            	<ace:dataTable id="tablaProductos">
-                       	<ace:column id="producto" headerText="Producto">
-	                	</ace:column>
-	                	
-	                	<ace:column id="eliminarProducto" headerText="Eliminar">
+
+			<ace:tabPane id="productosConf" label="Productos de Interés">
+				<ace:panel id="agregarProductos" header="Mis Productos">
+					<ace:dataTable id="tablaProductos">
+						<ace:column id="producto" headerText="Producto">
+						</ace:column>
+
+						<ace:column id="eliminarProducto" headerText="Eliminar">
 							<ace:pushButton id="eliminarBtn" value="eliminar">
 							</ace:pushButton>
 						</ace:column>
-	                </ace:dataTable>
+					</ace:dataTable>
 				</ace:panel>
 			</ace:tabPane>
-			
+
 			<ace:tabPane id="perfilConf" label="Mi Perfil">
-            	<ace:panel id="panel" header="Editar">                       
-                	<h:panelGrid columns="1">
-						<ace:textEntry id="nombrePerfil" label="Nombre" labelPosition="left">
-						</ace:textEntry>
-						<ace:textEntry id="apellidoPerfil" label="Apellido" labelPosition="left">
-						</ace:textEntry>
-						<ace:textEntry id="identificacionPerfil" label="Identificación" labelPosition="left">
-						</ace:textEntry>
-						<ace:textEntry id="telefonoPerfil" label="Teléfono" labelPosition="left">
-						</ace:textEntry>
-						<ace:textEntry id="correoPerfil" label="Correo" labelPosition="left">
-						</ace:textEntry>
-						<ace:textEntry id="password1Perfil" label="Contraseña" labelPosition="left">
-						</ace:textEntry>
-						<ace:textEntry id="password2Perfil" label="Confirmar Contraseña" labelPosition="left">
-						</ace:textEntry>
-						
-						<ace:pushButton id="guardarPerfilBoton" value="Guardar">
-						</ace:pushButton>	
-						
-						<ace:pushButton id="cancelarPerfiBoton" value="Cancelar">
-						</ace:pushButton>        			
-					</h:panelGrid> 
-          		</ace:panel>
+				<ace:panel id="panel" header="Editar">
+					<h:form>
+						<h:panelGrid columns="1">
+							<ace:textEntry id="nombrePerfil" labelPosition="inField"
+								binding="#{nombre}" label="#{perfilbean.usuario.nombre}">
+							</ace:textEntry>
+							<ace:textEntry id="apellidoPerfil" label="Apellido"
+								labelPosition="left" value="#{perfilbean.usuario.apellido}"
+								binding="#{apellido}">
+							</ace:textEntry>
+							<ace:textEntry id="correoPerfil" label="Correo"
+								labelPosition="left" value="#{perfilbean.usuario.correo}"
+								binding="#{correo}">
+							</ace:textEntry>
+							<ace:textEntry id="identificacionPerfil" label="Identificación"
+								labelPosition="left"
+								value="#{perfilbean.usuario.identificacion}"
+								binding="#{identificacion}">
+							</ace:textEntry>
+							<ace:textEntry id="ubicacionPerfil" label="Ubicacion"
+								labelPosition="left" value="#{perfilbean.usuario.ubicacion}"
+								binding="#{ubicacion}">
+							</ace:textEntry>
+							<ace:textEntry id="telefonoPerfil" label="Teléfono"
+								labelPosition="left" value="#{perfilbean.usuario.telefono}"
+								binding="#{telefono}">
+							</ace:textEntry>
+							<ace:textEntry id="nickPerfil" label="Nickname"
+								labelPosition="left" value="#{perfilbean.usuario.nickname}"
+								binding="#{nick}">
+							</ace:textEntry>
+							<ace:textEntry id="password1Perfil" label="Contraseña"
+								labelPosition="left" value="#{perfilbean.usuario.contraseña}"
+								binding="#{contrasena}">
+							</ace:textEntry>
+							<ace:textEntry id="password2Perfil" label="Confirmar Contraseña"
+								labelPosition="left">
+							</ace:textEntry>
+
+
+						</h:panelGrid>
+					</h:form>
+				</ace:panel>
+				<ace:linkButton id="guardarPerfilBoton" value="Guardar"
+					actionListener="#{perfilbean.actualizar(nombre.value, apellido.value. correo.value, identificacion.value, telefono.value, ubicacion.value, contrasena.value)}" ></ace:linkButton>
+				<ace:pushButton id="cancelarPerfilBoton" value="Cancelar"
+					actionListener="#{perfilbean.prueba}">
+				</ace:pushButton>
 			</ace:tabPane>
 		</ace:tabSet>
 	</h:form>

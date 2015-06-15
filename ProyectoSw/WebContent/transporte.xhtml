@@ -14,56 +14,65 @@
 <h:body>
 	<h:form id="menuForm">
 		<ace:panel id="panelMenu">
-	            <h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
-	                <ace:menu type="plain" id="exampleMenu" >
-						<ace:menuItem id="inicio" value="Inicio">
-	      				</ace:menuItem>
-	                    
-	                    <ace:menuItem   id="ventas" value="Ventas">
-						</ace:menuItem>
-	                    
-	                    <ace:menuItem id="insumos" value="Insumos">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="cultivo" value="Mi Cultivo">
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="transporte" value="Transporte"> 
-	                    </ace:menuItem>
-	                    
-	                    <ace:menuItem id="Configuracion" value="Configuración">
-	                    </ace:menuItem>
-	                </ace:menu>
-	           </h:panelGrid>
+			<h:panelGrid columns="2" columnClasses="menuStyle, menuLogStyle">
+				<ace:menu type="plain" id="exampleMenu">
+					<ace:menuItem id="inicio" value="Inicio" url="index.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="ventas" value="Ventas" url="ventas.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="insumos" value="Insumos" url="insumos.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="cultivo" value="Mi Cultivo" url="miCultivo.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="transporte" value="Transporte"
+						url="transporte.jsp">
+					</ace:menuItem>
+
+					<ace:menuItem id="Configuracion" value="Configuración"
+						url="configuracion.jsp">
+					</ace:menuItem>
+				</ace:menu>
+			</h:panelGrid>
 		</ace:panel>
 	</h:form>
-	
-	<h:form id="transporteForm">    
+
+	<h:form id="transporteForm">
 		<ace:panel id="datosTransportePanel" header="Transporte">
-			<h:panelGrid id="datosTransporte" colums="2" width="100%" styleClass="textEntryInputTable">
-            	<ace:textEntry id="distancia" label="Distancia" labelPosition="left" required="true">
+			<h:panelGrid id="datosTransporte" colums="2" width="100%"
+				styleClass="textEntryInputTable">
+				<ace:textEntry id="distancia" label="Distancia" labelPosition="left"
+					required="true">
 				</ace:textEntry>
-                    
-              	<ace:textEntry id="carga" label="Peso de la Carga" labelPosition="left" required="true">
-                </ace:textEntry>>
+
+				<ace:textEntry id="carga" label="Peso de la Carga"
+					labelPosition="left" required="true">
+				</ace:textEntry>>
                 
-                <ace:pushButton id="calcularValorBoton" value="Calcular Valor">
+                <ace:pushButton id="calcularValorBoton"
+					value="Calcular Valor">
 				</ace:pushButton>
-          	</h:panelGrid>
+			</h:panelGrid>
 		</ace:panel>
 
-        <ace:panel id="tablaTransportePanel">                       
-        	<ace:dataTable id="tablaTransporte">
-                <ace:column id="empresa" headerText="Empresa" sortBy="" filterBy="" filterMatchMode="contains">
-                </ace:column>
-                    
-              	<ace:column id="valorTarifa" headerText="ValorTarifa" sortBy="" filterBy="" filterMatchMode="contains">
-                </ace:column>
+		<ace:panel id="tablaTransportePanel">
+			<ace:dataTable id="tablaTransporte">
+				<ace:column id="empresa" headerText="Empresa" sortBy="" filterBy=""
+					filterMatchMode="contains">
+				</ace:column>
+
+				<ace:column id="valorTarifa" headerText="ValorTarifa" sortBy=""
+					filterBy="" filterMatchMode="contains">
+				</ace:column>
 			</ace:dataTable>
-                
-            <ace:comboBox id="selProducto" value="ABC Ltda." label="Producto: " labelPosition="left" style="height:19px;">
-			</ace:comboBox> 
-		
+
+			<ace:comboBox id="selProducto" value="ABC Ltda." label="Producto: "
+				labelPosition="left" style="height:19px;">
+			</ace:comboBox>
+
 			<ace:pushButton id="aceptarTransBoton" value="Aceptar">
 			</ace:pushButton>
 		</ace:panel>
